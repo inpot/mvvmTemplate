@@ -20,7 +20,7 @@
         android:orientation="vertical"
         tools:context="com.example.daniel.myapplication.${moduleName?cap_first}Activity">
 <#if hasAppBar>
-        <androidx.appcompat.widget.Toolbar.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -45,7 +45,7 @@
                 app:tabTextColor="?android:attr/textColorPrimary"
                 app:viewPager="@{@id/view_pager}" />
 </#if>
-        </androidx.appcompat.widget.Toolbar.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 </#if>
 <#if viewType=="recyclerView">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
