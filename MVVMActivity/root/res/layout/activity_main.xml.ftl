@@ -45,7 +45,7 @@
                 app:tabTextColor="?android:attr/textColorPrimary"
                 app:viewPager="@{@id/view_pager}" />
 </#if>
-        </com.google.android.material.appbar.AppBarLayout>
+        </androidx.appcompat.widget.Toolbar.widget.AppBarLayout>
 </#if>
 <#if viewType=="recyclerView">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
