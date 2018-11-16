@@ -1,5 +1,7 @@
 package ${escapeKotlinIdentifiers(packageName)}
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import app.base.BaseActivity
 import ${applicationPackage}.databinding.Activity${moduleName?cap_first}Binding
@@ -25,4 +27,11 @@ class ${activityClass} : BaseActivity(),${moduleName?cap_first}Contract.View {
         binding.setLifecycleOwner(this)
     }
 
+    companion object {
+
+        fun actionStart(context: Context){
+            context.startActivity(Intent(context,${activityClass}::class.java))
+        }
+
+    }
 }
