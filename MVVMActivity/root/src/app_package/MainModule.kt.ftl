@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.base.di.modules.LayoutManagerModules
 import app.base.di.scope.ListType
 import ${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}ListAdapter
+import javax.inject.Named
 <#elseif viewType=="topPager">
 import androidx.fragment.app.FragmentManager
 import ${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}PagerAdapter
@@ -29,7 +30,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
 <#if viewType=="recyclerView">
     @Provides
     @PerActivity
-    fun provideVM(repository: ${moduleName?cap_first}Rep, @Named(ListType.VERTICAL) layoutManager:RecyclerView.LayoutManager):${moduleName?cap_first}ListVM{
+    fun provideVM(repository: ${moduleName?cap_first}Rep, @Named(ListType.VERTICAL) layoutManager:RecyclerView.LayoutManager):${moduleName?cap_first}VM{
         var vm =
         when (view){
             is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
