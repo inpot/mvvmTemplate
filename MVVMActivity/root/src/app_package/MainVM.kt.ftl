@@ -7,7 +7,7 @@ import app.base.view.OnItemClick
 import app.base.mvvm.vm.list.BaseListAdapter
 <#elseif viewType=="topPager">
 import androidx.fragment.app.FragmentStatePagerAdapter
-import app.base.mvvm.vm.BaseVM
+import app.base.mvvm.vm.PagerVM
 <#else>
 import app.base.mvvm.vm.BaseVM
 </#if>
@@ -38,7 +38,7 @@ class ${moduleName?cap_first}VM( ) :BaseListVM<${moduleName?cap_first}Contract.R
 }
 
 <#elseif viewType=="topPager">
-class ${moduleName?cap_first}VM() :PagerVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View >(){
+class ${moduleName?cap_first}VM() :PagerVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View>(){
 
     constructor(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, pagerAdapter: FragmentStatePagerAdapter):this(){
         this.repository = repository

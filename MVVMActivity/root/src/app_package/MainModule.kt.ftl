@@ -48,7 +48,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
 <#elseif viewType=="topPager">
     @Provides
     @PerActivity
-    fun provideVM(repository: ${moduleName?cap_first}Rep,fragmentManager:FragmentManager):${moduleName?cap_first}PagerVM{
+    fun provideVM(repository: ${moduleName?cap_first}Rep,fragmentManager:FragmentManager):${moduleName?cap_first}VM{
         var vm =
         when (view){
             is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
