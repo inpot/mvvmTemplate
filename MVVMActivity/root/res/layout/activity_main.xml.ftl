@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 app:adapter="@{vm.pagerAdapter}"
-                app:layout_scrollFlags="scroll|enterAlways"
                 app:tabBackground="@drawable/bg_clickable_item_white"
                 app:tabIndicatorColor="@color/colorAccent"
                 app:tabIndicatorHeight="1.5dp"
