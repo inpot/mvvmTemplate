@@ -10,11 +10,7 @@
                     android:label="@string/title_${moduleName?lower_case}"
                 </#if>
             </#if>
-            <#if hasNoActionBar>
                 android:theme="@style/${themeNameNoActionBar}"
-            <#else>
-                android:theme="@style/${themeName}"
-            </#if>
             >
             <#if isLauncher>
                         <intent-filter>
