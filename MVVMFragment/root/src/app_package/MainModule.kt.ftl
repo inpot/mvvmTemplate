@@ -38,10 +38,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
             else -> ${moduleName?cap_first}VM(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
         }
         if(!vm.isInitialized()){
-            vm.view = view
-            vm.repository = repository
-            vm.layoutManager =  layoutManager
-            vm.adapter = ${moduleName?cap_first}ListAdapter()
+            vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
         }
         return vm
     }
@@ -57,9 +54,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
             else -> ${moduleName?cap_first}VM(repository,view, ${moduleName?cap_first}PagerAdapter(fragmentManager))
         }
         if(!vm.isInitialized()){
-            vm.view = view
-            vm.repository = repository
-            vm.pagerAdapter = ${moduleName?cap_first}PagerAdapter(fragmentManager)
+            vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
         }
         return vm
     }
@@ -75,8 +70,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
             else -> ${moduleName?cap_first}VM(repository, view)
         }
         if(!vm.isInitialized()){
-            vm.view = view
-            vm.repository = repository
+            vm.initialize(repository,view)
         }
         return vm
     }
