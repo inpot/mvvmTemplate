@@ -35,27 +35,23 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
         when (view){
             is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
             is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
+            else -> ${moduleName?cap_first}VM()
         }
-        if(!vm.isInitialized()){
-            vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
-        }
+        vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
         return vm
     }
 
 <#elseif viewType=="topPager">
     @Provides
     @PerActivity
-    fun provideVM(repository: ${moduleName?cap_first}Rep,fragmentManager:FragmentManager):${moduleName?cap_first}VM{
+    fun provideVM(repository: ${moduleName?cap_first}Rep,fragmentManager:FragmentManager):${moduleName?cap_first}PagerVM{
         var vm =
         when (view){
             is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
             is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM(repository,view, ${moduleName?cap_first}PagerAdapter(fragmentManager))
+            else -> ${moduleName?cap_first}VM()
         }
-        if(!vm.isInitialized()){
-            vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
-        }
+        vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
         return vm
     }
 
@@ -67,11 +63,9 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
         when (view){
             is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
             is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM(repository, view)
+            else -> ${moduleName?cap_first}VM()
         }
-        if(!vm.isInitialized()){
-            vm.initialize(repository,view)
-        }
+        vm.initialize(repository,view)
         return vm
     }
 
