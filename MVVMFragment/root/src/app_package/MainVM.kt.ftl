@@ -7,21 +7,15 @@ import app.base.view.OnItemClick
 import app.base.mvvm.vm.list.BaseListAdapter
 <#elseif viewType=="topPager">
 import androidx.fragment.app.FragmentStatePagerAdapter
-import app.base.mvvm.vm.BaseVM
+import app.base.mvvm.vm.PagerVM
 <#else>
 import app.base.mvvm.vm.BaseVM
 </#if>
 import ${escapeKotlinIdentifiers(packageName)}.di.${moduleName?cap_first}Contract
 
 <#if viewType=="recyclerView">
-class ${moduleName?cap_first}VM( ) :BaseListVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View, T>(),OnItemClick<T>{
-
-    constructor(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, layoutManager: RecyclerView.LayoutManager, adapter: BaseListAdapter<T>):this(){
-        this.repository = repository
-        this.view = view
-        this.adapter = adapter
-        this.layoutManager = layoutManager
-    }
+class ${moduleName?cap_first}VM( repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, layoutManager: RecyclerView.LayoutManager, adapter: BaseListAdapter<T>)
+    :BaseListVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View, T>(repository, view, layoutManager, adapter),OnItemClick<T>{
 
     init {
        adapter.onItemClick = this
@@ -38,23 +32,15 @@ class ${moduleName?cap_first}VM( ) :BaseListVM<${moduleName?cap_first}Contract.R
 }
 
 <#elseif viewType=="topPager">
-class ${moduleName?cap_first}VM() :PagerVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View >(){
-
-    constructor(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, pagerAdapter: FragmentStatePagerAdapter):this(){
-        this.repository = repository
-        this.view = view
-        this.pagerAdapter = pagerAdapter
-    }
+class ${moduleName?cap_first}VM(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, pagerAdapter: FragmentStatePagerAdapter)
+    :PagerVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View >(repository, view, pagerAdapter){
 
 }
 
 <#else>
-class ${moduleName?cap_first}VM() :BaseVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View >(){
+class ${moduleName?cap_first}VM(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View)
+    :BaseVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View >(repository, view){
 
-    constructor(repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View):this(){
-        this.repository = repository
-        this.view = view
-    }
 
 }
 </#if>
