@@ -31,13 +31,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
     @Provides
     @PerActivity
     fun provideVM(repository: ${moduleName?cap_first}Rep, @Named(ListType.VERTICAL) layoutManager:RecyclerView.LayoutManager):${moduleName?cap_first}VM{
-        var vm =
-        when (view){
-            is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM()
-        }
-        vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
+        var vm = ${moduleName?cap_first}VM()
         return vm
     }
 
@@ -45,13 +39,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
     @Provides
     @PerActivity
     fun provideVM(repository: ${moduleName?cap_first}Rep,fragmentManager:FragmentManager):${moduleName?cap_first}PagerVM{
-        var vm =
-        when (view){
-            is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM()
-        }
-        vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
+        var vm = ${moduleName?cap_first}VM()
         return vm
     }
 
@@ -59,12 +47,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
     @Provides
     @PerActivity
     fun provideVM(repository: ${moduleName?cap_first}Rep):${moduleName?cap_first}VM{
-        var vm =
-        when (view){
-            is Fragment -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
-            else -> ${moduleName?cap_first}VM()
-        }
+        var vm = ${moduleName?cap_first}VM()
         vm.initialize(repository,view)
         return vm
     }
