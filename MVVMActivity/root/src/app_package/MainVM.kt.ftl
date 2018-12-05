@@ -1,5 +1,6 @@
 package ${escapeKotlinIdentifiers(packageName)}
 
+import android.view.View
 <#if viewType=="recyclerView">
 import app.base.mvvm.vm.list.BaseListVM
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,7 @@ class ${moduleName?cap_first}VM( repository: ${moduleName?cap_first}Contract.Rep
         TODO()
     }
 
-    override fun onItemClick(data: T){
+    override fun onItemClick(view:View, data: T){
         TODO()
     }
 
