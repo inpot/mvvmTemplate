@@ -7,6 +7,8 @@
 
         <import type="${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}VM" />
 
+        <import type="android.view.View"/>
+
         <variable
             name="vm"
             type="${moduleName?cap_first}VM" />
