@@ -57,12 +57,33 @@
             app:refreshListener="@{vm.refreshingListener}"
             app:refreshing="@={vm.refreshing}">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:adapter="@{vm.adapter}"
-                app:layoutManager="@{vm.layoutManager}" />
+                android:layout_height="match_parent">
+
+                <include
+                    layout="@layout/empty_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:isVisible="@{vm.isEmpty}"
+                    tools:visibility="gone" />
+
+                <include
+                    layout="@layout/error_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:isVisible="@{vm.isError}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:adapter="@{vm.adapter}"
+                    app:layoutManager="@{vm.layoutManager}" />
+
+            </FrameLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 <#elseif viewType=="topPager">
         <androidx.viewpager.widget.ViewPager
