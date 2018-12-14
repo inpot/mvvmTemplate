@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:isVisible="@{vm.isEmpty}"
+                    app:isVisible="@{vm.status == 0}"
                     tools:visibility="gone" />
 
                 <include
@@ -48,11 +48,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:isVisible="@{vm.isError}" />
+                    app:isVisible="@{vm.status == -1}" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:visibility="@{vm.status == 1 ? View.VISIBLE : View.GONE}"
                     app:adapter="@{vm.adapter}"
                     app:layoutManager="@{vm.layoutManager}" />
 
