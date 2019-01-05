@@ -15,7 +15,7 @@ import app.base.mvvm.vm.BaseVM
 import ${escapeKotlinIdentifiers(packageName)}.di.${moduleName?cap_first}Contract
 
 <#if viewType=="recyclerView">
-class ${moduleName?cap_first}VM( repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, layoutManager: RecyclerView.LayoutManager, adapter: BaseListAdapter<T>)
+class ${moduleName?cap_first}VM( repository: ${moduleName?cap_first}Contract.Repository, view: ${moduleName?cap_first}Contract.View, layoutManager: RecyclerView.LayoutManager, adapter: ${moduleName?cap_first}ListAdapter)
     :BaseListVM<${moduleName?cap_first}Contract.Repository, ${moduleName?cap_first}Contract.View, T>(repository, view, layoutManager, adapter),OnItemClick<T>{
 
     init {
