@@ -40,10 +40,10 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 app:adapter="@{vm.pagerAdapter}"
-                app:tabBackground="@drawable/bg_clickable_item_white"
-                app:tabIndicatorColor="@color/colorAccent"
+                app:tabIndicatorColor="#333"
+                app:tabSelectedTextColor="#333"
+                app:tabTextColor="#aaa"
                 app:tabIndicatorHeight="1.5dp"
-                app:tabTextColor="?android:attr/textColorPrimary"
                 app:viewPager="@{@id/view_pager}" />
 </#if>
         </com.google.android.material.appbar.AppBarLayout>

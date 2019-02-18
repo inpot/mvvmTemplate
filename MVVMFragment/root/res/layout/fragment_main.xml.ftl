@@ -15,12 +15,14 @@
 
     </data>
 
+
+
+<#if viewType=="recyclerView">
        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-<#if viewType=="recyclerView">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refreshLayout"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -60,6 +62,19 @@
             </FrameLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 <#elseif viewType=="topPager">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/page_bg"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -68,22 +83,27 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             app:adapter="@{vm.pagerAdapter}"
-            app:tabBackground="@drawable/bg_clickable_item_white"
-            app:tabIndicatorColor="@color/colorAccent"
             app:tabIndicatorHeight="1.5dp"
-            app:tabTextColor="?android:attr/textColorPrimary"
+            app:tabIndicatorColor="#333"
+            app:tabSelectedTextColor="#333"
+            app:tabTextColor="#aaa"
             app:viewPager="@{@id/view_pager}" />
         </com.google.android.material.appbar.AppBarLayout>
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:offscreenPageLimit="@{vm.pagerAdapter.count}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 <#else>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,6 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-</#if>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+</#if>
 </layout>
