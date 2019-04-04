@@ -24,6 +24,7 @@ class ${activityClass} : BaseActivity(),${moduleName?cap_first}Contract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding:Activity${moduleName}Binding =  bindViewModel(R.layout.${layoutName},vm,${isHomeAsUp?c})
+        binding.setLifecycleOwner(this)
     }
 
     companion object {
