@@ -9,9 +9,7 @@
 
         <import type="android.view.View"/>
 
-        <variable
-            name="vm"
-            type="${moduleName?cap_first}VM" />
+        <variable name="vm" type="${moduleName?cap_first}VM" />
 
     </data>
 

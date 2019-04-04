@@ -9,9 +9,7 @@
 
         <import type="android.view.View"/>
 
-        <variable
-            name="vm"
-            type="${moduleName?cap_first}VM" />
+        <variable name="vm" type="${moduleName?cap_first}VM" />
 
     </data>
 
@@ -27,8 +25,10 @@
             android:id="@+id/refreshLayout"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="match_parent"
             app:refreshListener="@{vm.refreshingListener}"
             app:refreshing="@={vm.refreshing}">
@@ -61,12 +61,12 @@
 
             </FrameLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+       </androidx.constraintlayout.widget.ConstraintLayout>
 <#elseif viewType=="topPager">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/page_bg"
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout

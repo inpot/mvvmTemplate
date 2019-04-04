@@ -11,6 +11,9 @@ import androidx.fragment.app.FragmentManager
 import ${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}PagerAdapter
 </#if>
 
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProviders
 import app.base.di.scope.PerActivity
 import dagger.Module
 import dagger.Provides
@@ -48,7 +51,7 @@ class ${moduleName?cap_first}Module(val view:${moduleName?cap_first}Contract.Vie
             is FragmentActivity -> ViewModelProviders.of(view).get(${moduleName?cap_first}VM::class.java)
             else -> ${moduleName?cap_first}VM()
         }
-        vm.initialize(repository,view, layoutManager, ${moduleName?cap_first}ListAdapter())
+        vm.initialize(repository,view, ${moduleName?cap_first}PagerAdapter())
         return vm
     }
 

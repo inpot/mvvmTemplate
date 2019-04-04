@@ -7,9 +7,7 @@
 
         <import type="${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}ListItemVM" />
 
-        <variable
-            name="vm"
-            type="${moduleName?cap_first}ListItemVM" />
+        <variable name="vm" type="${moduleName?cap_first}ListItemVM" />
     </data>
 
     <TextView
