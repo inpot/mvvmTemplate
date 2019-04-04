@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.example.daniel.myapplication.${moduleName?cap_first}Activity">
+        tools:context="${escapeKotlinIdentifiers(packageName)}.${moduleName?cap_first}Activity">
 <#if hasAppBar>
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
