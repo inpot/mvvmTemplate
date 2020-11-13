@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <#import "root://activities/common/kotlin_macros.ftl" as kt>
 <recipe>
+    <#include "../common/recipe_manifest.xml.ftl" />
     <@kt.addAllKotlinDependencies />
-    <merge from="root/AndroidManifest.xml.ftl"
-           to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
     <merge from="root/res/values/manifest_strings.xml.ftl"
              to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 
